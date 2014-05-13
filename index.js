@@ -7,11 +7,19 @@
 var Emitter = require('component-emitter');
 
 
+var emitters = {};
+
+
 /**
  * Expose 'biplex'
  */
 
-module.exports = biplex;
+module.exports = function(name) {
+	var emitter = new Biplex();
+	emitters[name] = emitter;
+	return emitter;
+};
+
 
 
 /**
@@ -19,6 +27,18 @@ module.exports = biplex;
  * @api public
  */
 
-function biplex(name) {
-  return new Emitter();
+function Biplex() {
+
 }
+
+
+Emitter(Biplex.prototype);
+
+
+Biplex.prototype.from = function(name) {
+	
+};
+
+Biplex.prototype.to = function(name) {
+	return emitters[name];
+};
