@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --reporter nyan"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/bredele/biplex/issues"
   },
-  "homepage": "https://github.com/bredele/biplex"
+  "homepage": "https://github.com/bredele/biplex",
+  "devDependencies": {
+    "mocha": "^1.18.2"
+  },
+  "dependencies": {
+    "component-emitter": "^1.1.2"
+  }
 }
