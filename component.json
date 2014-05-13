@@ -1,0 +1,17 @@
+{
+  "name": "biplex",
+  "repo": "bredele/biplex",
+  "description": "Multi-sided emitter with support for middlewares.",
+  "version": "0.0.0",
+  "keywords": [],
+  "dependencies": {
+    "component/emitter": "*"
+  },
+  "development": {
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

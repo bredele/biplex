@@ -1,0 +1,26 @@
+{
+  "name": "biplex",
+  "version": "0.0.0",
+  "description": "Multi-sided emitter with support for middlewares",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bredele/biplex.git"
+  },
+  "keywords": [
+    "emitter",
+    "stream"
+  ],
+  "author": "Olivier Wietrich <olivier.wietrich@gmail.com> (http://github.com/bredele)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bredele/biplex/issues"
+  },
+  "homepage": "https://github.com/bredele/biplex"
+}
