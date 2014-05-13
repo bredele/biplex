@@ -15,7 +15,7 @@ var emitters = {};
  */
 
 module.exports = function(name) {
-	var emitter = new Biplex();
+	var emitter = new Biplex(name);
 	emitters[name] = emitter;
 	return emitter;
 };
@@ -27,7 +27,7 @@ module.exports = function(name) {
  * @api public
  */
 
-function Biplex() {
+function Biplex(name) {
 
 }
 
