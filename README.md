@@ -13,7 +13,7 @@ with [component](http://github.com/component/component):
 
 ## Usage
 
-  A biplex is an emitter:
+  A biplex is an [emitter](http://github.com/component/emitter):
 
 ```js
 var biplex = require('biplex');
@@ -38,6 +38,34 @@ bar.from('foo').on('hello', function() {
 
 foo.to('bar').emit('hello');
 ```
+
+## API
+
+  A biplex is a multi sided event [emitter](http://github.com/component/emitter). You can emit an event to an other
+  biplex emitter or listen events coming from a specific biplex emitter.
+
+### from
+
+  Listen events coming from a biplex.
+
+```js
+bar.from('foo').on('hello', function() {
+  // do seomthing
+});
+```
+
+  `from` returns a decorator with the methods `on` and `once`.
+  
+
+### to
+
+  Emit events to a biplex.
+
+```js
+foo.to('bar').emit('hello', 'world');
+``
+
+  `to` returns a decorator with the method `emit`.
 
 
 ## License

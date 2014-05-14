@@ -5,9 +5,8 @@
  */
 
 var Emitter = require('component-emitter');
+var decorator = require('./lib/decorator');
 
-
-var emitters = {};
 
 
 /**
@@ -16,14 +15,19 @@ var emitters = {};
 
 module.exports = function(name) {
 	var emitter = new Biplex(name);
-	emitters[name] = emitter;
+	decorator.register(name, emitter);
 	return emitter;
 };
 
 
-
 /**
  * biplex constructor.
+ *
+ * Examples:
+ *
+ *   var foo = biplex('foo');
+ * 
+ * @param {String} name
  * @api public
  */
 
@@ -32,25 +36,40 @@ function Biplex(name) {
 }
 
 
+// a biplex is an emitter
+
 Emitter(Biplex.prototype);
 
 
-Biplex.prototype.from = function(name) {
-	var _this = this;
-	return {
-		on: function(topic, fn) {
-			emitters[_this.name].on(name + ' ' + topic, fn);
-		}
-	};
+/**
+ * Listen events from biplex.
+ *
+ * Examples:
+ *
+ *   foo.from('bar').on('beep', fn);
+ *   
+ * @param  {String} destination 
+ * @return {Emitter} decorator
+ * @api public
+ */
+
+Biplex.prototype.from = function(dest) {
+	return decorator(this.name, dest);
 };
 
-Biplex.prototype.to = function(name) {
-	var _this = this;
-	//return emitters[name];
-	return {
-		emit: function(topic) {
-			emitters[name].emit(topic);
-			emitters[name].emit(_this.name + ' ' + topic);
-		}
-	};
+
+/**
+ * Emit events to biplex.
+ *
+ * Examples:
+ *
+ *   bar.to('foo').emit('beep');
+ *   
+ * @param  {String} source 
+ * @return {Emitter} decorator
+ * @api public
+ */
+
+Biplex.prototype.to = function(source) {
+	return decorator(source, this.name);
 };
