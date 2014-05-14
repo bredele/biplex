@@ -13,9 +13,21 @@ with [component](http://github.com/component/component):
 
 ## Usage
 
+  A biplex is an emitter:
+
 ```js
 var biplex = require('biplex');
+var beep = biplex('beep');
 
+beep.on('boop', function() {
+  // do something
+});
+beep.emit('boop');
+```
+
+  and can emit messages to an other biplex:
+
+```js
 var foo = biplex('foo');
 var bar = biplex('bar');
 
