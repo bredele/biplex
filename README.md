@@ -63,7 +63,7 @@ bar.from('foo').on('hello', function() {
 
 ```js
 foo.to('bar').emit('hello', 'world');
-``
+```
 
   `to` returns a decorator with the method `emit`.
 
