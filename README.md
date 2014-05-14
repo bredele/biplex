@@ -7,7 +7,7 @@ multi-sided emitter with support for middleware inspired by **[component-channel
 ## Installation
 
 with [component](http://github.com/component/component):
-
+  
   $ component install bredele/biplex
 
 
