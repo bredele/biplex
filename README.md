@@ -1,17 +1,31 @@
 biplex
 ======
 
-multi-sided emitter with support for middleware inspired by **[channel](http://github.com/bredele/channel)** and built for **[wall](http://github.com/bredele/wall)**
+multi-sided emitter with support for middleware inspired by **[component-channel](http://github.com/bredele/channel)** and built for **[wall](http://github.com/bredele/wall)**
 
 
 ## Installation
 
 with [component](http://github.com/component/component):
 
-	$ component install bredele/biplex
+  $ component install bredele/biplex
 
 
 ## Usage
+
+```js
+var biplex = require('biplex');
+
+var foo = biplex('foo');
+var bar = biplex('bar');
+
+
+bar.from('foo').on('hello', function() {
+  // do something;
+});
+
+foo.to('bar').emit('hello');
+```
 
 
 ## License

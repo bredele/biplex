@@ -28,7 +28,7 @@ module.exports = function(name) {
  */
 
 function Biplex(name) {
-
+	this.name = name;
 }
 
 
@@ -36,9 +36,21 @@ Emitter(Biplex.prototype);
 
 
 Biplex.prototype.from = function(name) {
-	
+	var _this = this;
+	return {
+		on: function(topic, fn) {
+			emitters[_this.name].on(name + ' ' + topic, fn);
+		}
+	};
 };
 
 Biplex.prototype.to = function(name) {
-	return emitters[name];
+	var _this = this;
+	//return emitters[name];
+	return {
+		emit: function(topic) {
+			emitters[name].emit(topic);
+			emitters[name].emit(_this.name + ' ' + topic);
+		}
+	};
 };
